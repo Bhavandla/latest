@@ -58,7 +58,7 @@ class TemplateCanvas(canvas.Canvas):
         self.line(47, 88, A4[0]+200, 88)
         self.setFillColor(colors.olivedrab)
         self.setFont('Helvetica-Bold', 14.5)
-        self.drawString(2*inch, 7.5*inch, "Traveler's Check Images for {name}".format(name=save_image.tc_name))
+        self.drawString(2*inch, 7.5*inch, "Images for {name}".format(name=save_image.name))
         self.setFillColor(colors.black)
         self.setFont('Times-Roman', 13)
         self.drawRightString(280*mm, 7.5*inch, "Date Created: {date}".format(date=datetime.date.today().strftime("%m/%d/%Y")))
@@ -72,7 +72,7 @@ def create_doc(elements):
     :param elements: List of Paragraph objects and Image objects (PIL images)
     :return: Creates a PDF document and returns None
     """
-    doc = SimpleDocTemplate("{name}.pdf".format(name=save_image.tc_name), pagesize=A4)
+    doc = SimpleDocTemplate("{name}.pdf".format(name=save_image.name), pagesize=A4)
     doc.pagesize = landscape(A4)
     doc.build(elements, canvasmaker=TemplateCanvas)
 
