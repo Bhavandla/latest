@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python3
 
 # script to Compare JSON data (Unicode) with CSV records (str)
 import csv
